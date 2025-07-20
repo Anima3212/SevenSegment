@@ -9,7 +9,7 @@
 #include "Arduino.h"
 #include "SegmentDisplay.h"
 
-SegmentDisplay::SegmentDisplay(int pin1, int pin2, int pin4, int pin5, int pin6, int pin7, int pin9, int pin10) {
+SegmentDisplay::SegmentDisplay(int pin1, int pin2, int pin4, int pin5, int pin6, int pin7, int pin9) {
     
     pins[0] = pin1;
     pins[1] = pin2;
@@ -18,16 +18,15 @@ SegmentDisplay::SegmentDisplay(int pin1, int pin2, int pin4, int pin5, int pin6,
     pins[4] = pin6;
     pins[5] = pin7;
     pins[6] = pin9;
-    pins[7] = pin10;
-
+   
     
-    for(int i = 0; i < 8; i++) {
+    for(int i = 0; i < 7; i++) {
         pinMode(pins[i], OUTPUT);
         digitalWrite(pins[i], HIGH);
     }
 }
 
-void SegmentDisplay::displayHex(int number, boolean decimalPointFlag) {
+void SegmentDisplay::displayHex(int number) {
     
     byte numbersToDisplay[] = {
         B10001000,  //  0
@@ -53,14 +52,12 @@ void SegmentDisplay::displayHex(int number, boolean decimalPointFlag) {
     
     boolean bitToWrite;
     
-    for(int segment = 0; segment < 8; segment++) {
+    for(int segment = 0; segment < 7; segment++) {
         if(number < 0 || number > 15) {
             bitToWrite = bitRead(numbersToDisplay[16], segment);
         }
         
-        else if(segment == 3 && decimalPointFlag) {
-            bitToWrite = 0;
-        }
+
         
         else {
             bitToWrite = bitRead(numbersToDisplay[number], segment);
@@ -71,20 +68,11 @@ void SegmentDisplay::displayHex(int number, boolean decimalPointFlag) {
     }
 }
 
-void SegmentDisplay::displayDecimalPoint() {
-    for(int i = 0; i < 8; i++) {
-        if(i == 3) {
-            digitalWrite(pins[i], 0);
-        }
-        else {
-            digitalWrite(pins[i], 1);
-        }
-    }
-}
+
 
 void SegmentDisplay::testDisplay() {
 	for(int i = 0; i <= 15; i++) {
-		displayHex(i, false);
+		displayHex(i);
 		delay(500);
 	}
 }

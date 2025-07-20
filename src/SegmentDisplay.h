@@ -14,13 +14,12 @@
 class SegmentDisplay
 {
     public:
-      SegmentDisplay(int pin1, int pin2, int pin4, int pin5, int pin6, int pin7, int pin9, int pin10);
-      void displayDecimalPoint();
-      void displayHex(int numberToDisplay, boolean decimalPointFlag);
+      SegmentDisplay(int pin1, int pin2, int pin4, int pin5, int pin6, int pin7, int pin9);
+      void displayHex(int numberToDisplay);
       void testDisplay();
 
     private:
-	  int pins[8];
+	  int pins[7];
     
 };
 
