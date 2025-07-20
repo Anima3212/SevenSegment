@@ -68,6 +68,12 @@ void SegmentDisplay::displayHex(int number) {
     }
 }
 
+void SegmentDisplay::clearDisplay() {
+    for(int i = 0; i < 7; i++) {
+        digitalWrite(pins[i], HIGH);
+    }
+}
+
 
 
 void SegmentDisplay::testDisplay() {

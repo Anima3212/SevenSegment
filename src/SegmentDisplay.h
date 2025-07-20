@@ -17,6 +17,7 @@ class SegmentDisplay
       SegmentDisplay(int pin1, int pin2, int pin4, int pin5, int pin6, int pin7, int pin9);
       void displayHex(int numberToDisplay);
       void testDisplay();
+      void clearDisplay();
 
     private:
 	  int pins[7];
