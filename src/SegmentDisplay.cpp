@@ -54,16 +54,16 @@ void SegmentDisplay::displayHex(int number) {
     int bitToWrite;
     
     for(int segment = 0; segment < 7; segment++) {
-        //TODO:make error message
+        //TODO: make error message
        /* if(number < 0 || number > 15) {
             bitToWrite = numbersToDisplay[];
         }*/
         
 
-        
-        else {
+        //else{
+       
             bitToWrite = numbersToDisplay[number][segment];
-        }
+        //}
         
         digitalWrite(pins[segment], bitToWrite);
         
