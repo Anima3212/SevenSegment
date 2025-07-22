@@ -30,7 +30,7 @@ void SegmentDisplay::displayHex(int number) {
     
     int numbersToDisplay[][7] = {
         //  0  
-        {0,0,0,0,0,0,0} 
+        {0,0,0,0,0,0,1} 
        /* B11101011,  //  1
         B01001100,  //  2
         B01001001,  //  3
@@ -54,9 +54,10 @@ void SegmentDisplay::displayHex(int number) {
     int bitToWrite;
     
     for(int segment = 0; segment < 7; segment++) {
-        if(number < 0 || number > 15) {
-            bitToWrite = bitRead(numbersToDisplay[16], segment);
-        }
+        //TODO:make error message
+       /* if(number < 0 || number > 15) {
+            bitToWrite = numbersToDisplay[];
+        }*/
         
 
         
