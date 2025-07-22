@@ -28,7 +28,7 @@ SegmentDisplay::SegmentDisplay(int pin1, int pin2, int pin4, int pin5, int pin6,
 
 void SegmentDisplay::displayHex(int number) {
     
-    int numbersToDisplay[][] = {
+    int numbersToDisplay[][7] = {
         //  0  
         {0,0,0,0,0,0,0} 
        /* B11101011,  //  1
