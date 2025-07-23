@@ -33,7 +33,17 @@ void SegmentDisplay::displayHex(int number) {
         {0,0,0,0,0,0,1}, // 0  
         {1,1,0,0,1,1,1}, // 1
         {0,0,1,0,0,1,0}, // 2
-        {1,0,0,0,0,1,0} // 3
+        {1,0,0,0,0,1,0}, // 3
+        {1,1,0,0,1,0,0}, // 4
+        {1,0,0,1,0,0,0}, // 5
+        {0,0,0,1,0,0,0}, // 6
+        {1,1,0,0,0,1,1}, // 7
+        {0,0,0,0,0,0,0}, // 8
+        {1,1,0,0,0,0,0}, // 9
+        {0,1,0,0,0,0,0}, // A
+        {0,0,0,0,1,1,0}, // B
+        {1,0,0,0,0,1,1}, // C
+        {0,0,1,1,0,0,0} // E    
        /* B11101011,  //  1
         B01001100,  //  2
         B01001001,  //  3
@@ -57,16 +67,15 @@ void SegmentDisplay::displayHex(int number) {
     int bitToWrite;
     
     for(int segment = 0; segment < 7; segment++) {
-        //TODO: make error message
-       /* if(number < 0 || number > 15) {
-            bitToWrite = numbersToDisplay[];
-        }*/
+        if(number < 0 || number > 12) {
+            bitToWrite = numbersToDisplay[13][segment];
+        }
         
 
-        //else{
+        else{
        
             bitToWrite = numbersToDisplay[number][segment];
-        //}
+        }
         
         digitalWrite(pins[segment], bitToWrite);
         
